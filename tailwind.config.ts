@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
 
 export default {
 	darkMode: ["class"],
@@ -52,45 +53,51 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+        "sidebar": {
+          "DEFAULT": "hsl(var(--prd-sidebar-bg))",
+          "foreground": "hsl(var(--prd-sidebar-fg))"
+        },
+        "accent-green": "hsl(var(--prd-accent-green))",
+        "accent-red": "hsl(var(--prd-accent-red))",
+        "accent-blue": "hsl(var(--prd-accent-blue))",
+        "surface": "hsl(var(--prd-surface))"
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+        "DEFAULT": "calc(var(--radius) - 2px)",
+				"lg": "var(--radius)",
+				"md": "calc(var(--radius) - 2px)",
+				"sm": "calc(var(--radius) - 4px)"
 			},
+      "fontFamily": {
+        "sans": ["var(--font-sans)", "...defaultTheme.fontFamily.sans"]
+      },
+      "boxShadow": {
+        "DEFAULT": "defaultTheme.boxShadow.sm",
+        "header": "defaultTheme.boxShadow.md"
+      },
 			keyframes: {
-				'accordion-down': {
+				"accordion-down": {
 					from: {
-						height: '0'
+						height: "0"
 					},
 					to: {
-						height: 'var(--radix-accordion-content-height)'
+						height: "var(--radix-accordion-content-height)"
 					}
 				},
-				'accordion-up': {
+				"accordion-up": {
 					from: {
-						height: 'var(--radix-accordion-content-height)'
+						height: "var(--radix-accordion-content-height)"
 					},
 					to: {
-						height: '0'
+						height: "0"
 					}
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out"
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+	plugins: ["require(\"tailwindcss-animate\")"],
+}
